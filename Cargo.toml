@@ -1,0 +1,26 @@
+[package]
+name = "graphql-ws-example"
+authors = ["Vladimir Nazarov <vlnzrv@amazon.co.uk>"]
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# Client dependencies
+# In graphql-ws-client "async-tungstenite" feature will be deprecated soon:
+# https://github.com/obmarg/graphql-ws-client/blob/01ce959e238c9decf6aac43c8507c8c9212738e8/CHANGELOG.md?plain=1#L55
+graphql-ws-client = { version = "0.8.2", features = ["client-graphql-client", "async-tungstenite"]}
+graphql_client = { version = "0.13" }
+tokio-tungstenite = { version = "0.21.0" }
+tokio = { version = "1.15", features = ["rt-multi-thread", "macros"] }
+futures = "0.3"
+serde = "1"
+# Server dependencies
+assert_matches = "1.5"
+async-graphql = "7.0.1"
+async-graphql-axum = "7"
+axum = "0.7"
+axum-macros = "0.4"
+insta = "1.11"
+tokio-stream = { version = "0.1", features = ["sync"] }
